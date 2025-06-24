@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // Obtener la cadena de conexión desde la variable de entorno configurada por Service Connector
-const connectionString = process.env.AZURE_COSMOS_CONNECTIONSTRING;
+const connectionString = process.env.COSMOS_CONNECTION_STRING;
 if (!connectionString) {
     throw new Error('La cadena de conexión de Cosmos DB no está configurada. Verifica el Service Connector.');
 }
@@ -22,6 +22,11 @@ async function getContainer(containerId) {
     const { container } = await database.containers.createIfNotExists({ id: containerId });
     return container;
 }
+
+// Ruta básica para la raíz
+app.get('/', (req, res) => {
+    res.json({ message: 'API Zynemax+ en ejecución. Usa /api/review para las operaciones.' });
+});
 
 // Crear una reseña (Insert)
 app.post('/api/review/:type', async (req, res) => {

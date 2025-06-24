@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
         status: 'running',
         endpoints: {
             post: '/api/review/:type (crear reseña)',
-            get: '/api/reviews/:type (ver todas las reseñas)',
+            get: '/api/reviews/:type (ver todas las reseñas.)',
             get: '/api/review/:type/:dni (ver reseña específica)',
             put: '/api/review/:type/:dni (actualizar reseña)',
             delete: '/api/review/:type/:dni (eliminar reseña)'

@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // Obtener la cadena de conexión desde la variable de entorno configurada por Service Connector
-const connectionString = process.env.AccountEndpoint=https://zynemaxplus.documents.azure.com:443/;AccountKey=tpRLhplpnWCpw3hhan7agVpevkc6gCoDtN6V38UdwWQ4vpSExq70wFor8CIBNU9aBEUv5V94IHPOACDb6Gpdnw==;;
+const connectionString = process.env.AZURE_COSMOS_CONNECTIONSTRING;
 if (!connectionString) {
     console.error('Error: La cadena de conexión de Cosmos DB no está configurada.');
     process.exit(1);
